@@ -15,6 +15,7 @@ import com.tienda.configuracion.Configuracion;
 
 import io.github.bonigarcia.seljup.SeleniumExtension;
 
+//estamos validando si funciona correctamente.
 @ExtendWith(SeleniumExtension.class)
 public class Abstract extends PDF {
 
