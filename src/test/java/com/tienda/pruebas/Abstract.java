@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
+
+import com.gargoylesoftware.htmlunit.javascript.TimeoutError;
 import com.reportes.PDF;
 import com.tienda.configuracion.Configuracion;
 
@@ -57,6 +59,7 @@ public class Abstract extends PDF {
 				.click();
 		log.debug("click en mi cuenta");
 
+		/** Una exception indica que se produjo un error en el programa**/
 		} catch (Exception e) {
 
 			log.error("No se pudo ingresar a 'MI CUENTA'");
@@ -150,8 +153,7 @@ public class Abstract extends PDF {
 
 			log.error("Error al obtener el elemento de la pestaña Mobile o al obtener el titulo de mobile");
 			System.out.println("Error al obtener el elemento de la pestaña Mobile o al obtener el titulo de mobile");
-		}
-
+	}
 	}
 	
 	/** Variables Globales **/
@@ -194,6 +196,53 @@ public class Abstract extends PDF {
 
 		}
 
+	}
+	
+	/** Variables Globales **/
+	
+	public static String expectedPriceIphone = "$500.00";
+	public static String currentPriceIphone = "";
+	
+	protected void PrecioCelularIphone(){
+		
+		Login();
+		
+		int times = 5;
+		
+		
+		WebDriverWait waitelement = new WebDriverWait(webDriver, times);
+		
+		try {
+
+			waitelement.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.level0:nth-child(1)")))
+					.click();
+
+			log.debug("Ingresamos a la pestaña MOBILE ");
+
+		} catch (Exception e) {
+
+			log.error("No se obtener el elemento de la pestaña MOBILE");
+			System.out.println("No se obtener el elemento de la pestaña MOBILE ");
+
+		}
+		
+		
+		try {
+			
+		currentPriceIphone = waitelement.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span#product-price-2"))).getText();
+		
+			log.debug("Se obtyuvo de manera correcta el precio del iphone ");
+		
+		}catch (Exception e) {
+		
+			log.error("No se obtener el precio del iphone");
+
+		}
+		
+		
+		
+		
+		
 	}
 
 

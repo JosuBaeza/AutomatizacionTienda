@@ -40,9 +40,16 @@ public class PruebasTienda extends Abstract {
 		super.Mobile();
 	}
 
-	@DisplayName("D Generar PDF")
+	@DisplayName("D Test Precio Iphone")
 	@Test
-	public void TestD() throws Exception {
+	public void TestD() {
+
+		super.PrecioCelularIphone();
+	}
+
+	@DisplayName("E Generar PDF")
+	@Test
+	public void TestE() throws Exception {
 
 		super.GeneraPDF();
 	}
