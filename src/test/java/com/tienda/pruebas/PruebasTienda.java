@@ -10,11 +10,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.seljup.Arguments;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PruebasTienda extends Abstract {
 
 
-	public PruebasTienda(ChromeDriver chromeDriver) {
+	/**
+	 * Con esta anotacion @Arguments y ("--headless") hacemos que no se abra el
+	 * navegador que estamos usando.
+	 **/
+	public PruebasTienda(@Arguments("--headless") ChromeDriver chromeDriver) {
 		super(chromeDriver, getLogger(lookup().lookupClass()));
 	}
 
