@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 
-import com.gargoylesoftware.htmlunit.javascript.TimeoutError;
 import com.reportes.PDF;
 import com.tienda.configuracion.Configuracion;
 

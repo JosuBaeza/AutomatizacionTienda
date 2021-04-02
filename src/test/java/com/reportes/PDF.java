@@ -34,10 +34,17 @@ public class PDF {
 
 		Document documento = new Document();
 
+		/**
+		 * Aqui vamos a crear una variable como fuente y luego a esa fuente le vamos a
+		 * setear un color y le vamos a dar un tamaño
+		 **/
 		Font fuente = new Font();
 		fuente.setColor(252, 4, 4);
 		fuente.setSize(55);
 
+		/**
+		 * Aqui es donde guardaremos el PDF y el nombre que tendra.
+		 **/
 		PdfWriter.getInstance(documento, new FileOutputStream("D:/PDFTIENDA.pdf"));
 		documento.open();
 
@@ -45,8 +52,14 @@ public class PDF {
 		// imagen.scalePercent(155,110);
 		// documento.add(imagen);
 
+
 		documento.add(new Paragraph(
 				"---------------------------------------------------------------------------------------------------------------------------"));
+		/**
+		 * Al agregar fuente al final, vamos a decir que lo que escribimos, tendra el
+		 * formato que le seteamos a la fuente 'variable fuente', en este caso el color
+		 * y tamaño "
+		 **/
 		documento.add(new Paragraph("                        Resultado Pruebas            ", fuente));
 		documento.add(new Paragraph(
 				"---------------------------------------------------------------------------------------------------------------------------"));
@@ -106,6 +119,16 @@ public class PDF {
 			documento.add(new Paragraph(Resultado.replace('J', '2')
 					+ "        La prueba 'Fallo', el precio del celular Sony no es correcto"));
 		}
+		documento.add(new Paragraph(
+				"---------------------------------------------------------------------------------------------------------------------------"));
+
+		Paragraph parrafo7 = new Paragraph("Prueba N° 4");
+		Paragraph parrafo8 = new Paragraph("Validar Precio Celular Iphone");
+		parrafo7.setIndentationLeft(195);
+		parrafo8.setIndentationLeft(155);
+		documento.add(parrafo7);
+		documento.add(parrafo8);
+
 		documento.add(new Paragraph(
 				"---------------------------------------------------------------------------------------------------------------------------"));
 
